@@ -22,9 +22,9 @@ $url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey
 $json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'&q={"question":"'.$message.'"}');
 $data = json_decode($json);
 $isData=sizeof($data);
-if (strpos($message, '�͹��') !== false) {
-  if (strpos($message, '�͹��') !== false) {
-    $x_tra = str_replace("�͹��","", $message);
+if (strpos($message, 'ÊÍ¹à»ç´') !== false) {
+  if (strpos($message, 'ÊÍ¹à»ç´') !== false) {
+    $x_tra = str_replace("ÊÍ¹à»ç´","", $message);
     $pieces = explode("|", $x_tra);
     $_question=str_replace("[","",$pieces[0]);
     $_answer=str_replace("]","",$pieces[1]);
@@ -44,7 +44,7 @@ if (strpos($message, '�͹��') !== false) {
     );
     $context = stream_context_create($opts);
     $returnValue = file_get_contents($url,false,$context);
-    $message_to_reply = '�ͺ�س����͹��';
+    $message_to_reply = '¢Íº¤Ø³·ÕèÊÍ¹à»ç´';
   }
 }else{
   if($isData >0){
@@ -52,7 +52,7 @@ if (strpos($message, '�͹��') !== false) {
      $message_to_reply = $rec->answer;
    }
   }else{
-    $message_to_reply = '��Һ� �س����ö�͹����Ҵ����§�����: �͹��[�Ӷ��|�ӵͺ]';
+    $message_to_reply = '¡êÒºº ¤Ø³ÊÒÁÒÃ¶ÊÍ¹ãËé©ÅÒ´ä´éà¾ÕÂ§¾ÔÁ¾ì: ÊÍ¹à»ç´[¤Ó¶ÒÁ|¤ÓµÍº]';
   }
 }
 //API Url
