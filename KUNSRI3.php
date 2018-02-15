@@ -17,14 +17,14 @@ $message_to_reply = '';
  * Some Basic rules to validate incoming messages
  */
 
-$api_key="<mLAP API KEY>";
+$api_key="b18c49146f2aa74c2482be6ac5ca71df";
 $url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'';
 $json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'&q={"question":"'.$message.'"}');
 $data = json_decode($json);
 $isData=sizeof($data);
-if (strpos($message, 'ÊÍ¹à»ç´') !== false) {
-  if (strpos($message, 'ÊÍ¹à»ç´') !== false) {
-    $x_tra = str_replace("ÊÍ¹à»ç´","", $message);
+if (strpos($message, 'hello') !== false) {
+  if (strpos($message, 'hello') !== false) {
+    $x_tra = str_replace("hello","", $message);
     $pieces = explode("|", $x_tra);
     $_question=str_replace("[","",$pieces[0]);
     $_answer=str_replace("]","",$pieces[1]);
@@ -44,7 +44,7 @@ if (strpos($message, 'ÊÍ¹à»ç´') !== false) {
     );
     $context = stream_context_create($opts);
     $returnValue = file_get_contents($url,false,$context);
-    $message_to_reply = '¢Íº¤Ø³·ÕèÊÍ¹à»ç´';
+    $message_to_reply = 'I ready to lend';
   }
 }else{
   if($isData >0){
@@ -52,7 +52,7 @@ if (strpos($message, 'ÊÍ¹à»ç´') !== false) {
      $message_to_reply = $rec->answer;
    }
   }else{
-    $message_to_reply = '¡êÒºº ¤Ø³ÊÒÁÒÃ¶ÊÍ¹ãËé©ÅÒ´ä´éà¾ÕÂ§¾ÔÁ¾ì: ÊÍ¹à»ç´[¤Ó¶ÒÁ|¤ÓµÍº]';
+    $message_to_reply = 'สอนเราให้ฉลาดขึ้น : ri2[คำถาม|คำตอบ]';
   }
 }
 //API Url
